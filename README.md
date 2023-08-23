@@ -1,11 +1,9 @@
 # art-chaos
 
-#BackGround
+## BackGround
 Artists created intact and completed masterpieces. It is time to reconstruct the beauty by destroying it. This game is designed to mess up the artwork and watch the flow of color.
 
-#Functionality & MVPs
-
-
+## Functionality & MVPs
 In Art-Chaos, users will be able to:
 
 { upload their favorite masterpiece }
