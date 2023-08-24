@@ -6,8 +6,8 @@ Artists created intact and completed masterpieces. It is time to reconstruct the
 ## Functionality & MVPs
 In Art-Chaos, users will be able to:
 
-{ upload their favorite masterpiece }
-{ can use cursor to interact with the pixels }
-{ can refresh and reset the initial setup }
-{ can save the current image of the current state }
+- upload their favorite masterpiece 
+- can use cursor to interact with the pixels 
+- can refresh and reset the initial setup 
+- can save the current image of the current state 
 

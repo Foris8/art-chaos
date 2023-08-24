@@ -1,0 +1,38 @@
+{
+  "name": "art-chaos",
+  "version": "1.0.0",
+  "description": "## BackGround Artists created intact and completed masterpieces. It is time to reconstruct the beauty by destroying it. This game is designed to mess up the artwork and watch the flow of color.",
+  "main": "index.js",
+  "browserslist": [
+    "defaults"
+  ],
+  "scripts": {
+    "watch": "webpack --watch --mode=development",
+    "build": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Foris8/art-chaos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Foris8/art-chaos/issues"
+  },
+  "homepage": "https://github.com/Foris8/art-chaos#readme",
+  "dependencies": {
+    "@babel/core": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
+    "babel-loader": "^9.1.3",
+    "core-js": "^3.32.1",
+    "css-loader": "^6.8.1",
+    "mini-css-extract-plugin": "^2.7.6",
+    "paper": "^0.12.17",
+    "regenerator-runtime": "^0.14.0",
+    "sass": "^1.66.1",
+    "sass-loader": "^13.3.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
