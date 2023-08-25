@@ -1,32 +1,15 @@
 // import { Raster } from "paper/dist/paper-core";
 // import * as paper from "paper"
 import paper from "paper"
+import { Raster } from "paper/dist/paper-core"
 
 export default function default_canvas(){
-    // const canvas = document.getElementById("art-canvas");
-    // canvas.width = 500;
-    // canvas.height = 500;
-    // // canvas.style.borderColor = "blue";
-    // canvas.style.border = "thin dotted red";
+    let canvas = document.getElementById('myCanvas');
+    paper.setup(canvas); // create new project and view
 
-    // const ctx = canvas.getContext("2d");
-
-    // // ctx.fillStyle = "#ab7287";
-    // ctx.fillStyle = "white";
-    // ctx.fillRect(10, 10, canvas.width, canvas.height);
-    // // ctx.strokeStyle = 'black'
-    // canvas.style.position = 'absolute';
-    // canvas.style.top = window.innerHeight / 2 - canvas.height / 2 + 'px';
-    // canvas.style.left = window.innerWidth / 2 - canvas.width / 2 + 'px';
-
-    // Get a reference to the canvas object
-    var canvas = document.getElementById('myCanvas');
-    // Create an empty project and a view for the canvas:
-    paper.setup(canvas);
-
-    const raster = new paper.Raster("star");
-    // Hide the raster:
-    raster.visible = false;
+    let raster = new paper.Raster('star');
+    raster.position = paper.view.center;
+    // raster.visible = false;
 
     // The size of our grid cells:
     var gridSize = 12;
@@ -34,39 +17,53 @@ export default function default_canvas(){
     // Space the cells by 120%:
     var spacing = 1.2;
 
-    // As the web is asynchronous, we need to wait for the raster to load
-    // before we can perform any operation on its pixels.
-    raster.on('load', function () {
-        // Since the example image we're using is much too large,
-        // and therefore has way too many pixels, lets downsize it to
-        // 40 pixels wide and 30 pixels high:
-        raster.size = new Size(40, 30);
+    raster.on('load',function(){
+        raster.size = new paper.Size(128,128)
+    })
 
-        for (var y = 0; y < raster.height; y++) {
-            for (var x = 0; x < raster.width; x++) {
-                // Get the color of the pixel:
-                var color = raster.getPixel(x, y);
+    for (var y = 0; y < raster.height; y++) {
+        for (var x = 0; x < raster.width; x++) {
+            // Get the color of the pixel:
+            var color = raster.getPixel(x, y);
+            // Create a circle shaped path:
+            // var path = new paper.Path.Circle({
+            //     center: p,
+            //     radius: gridSize / 2 / spacing,
+            //     fillColor: 'black'
+            // });
+            var path = new paper.Path.Circle({
+                center: new paper.view.center,
+                radius: gridSize / 2 / spacing,
+                fillColor: color
+            });
 
-                // Create a circle shaped path:
-                var path = new Path.Circle({
-                    center: new Point(x, y) * gridSize,
-                    radius: gridSize / 2 / spacing
-                });
-
-                // Set the fill color of the path to the color
-                // of the pixel:
-                path.fillColor = color;
+            // let path = new paper.Path.Circle(new paper.Point(x, y), gridSize / 2 / spacing);
+            // path.fillColor = color;
+            // Scale the path by the amount of gray in the pixel color:
+            function onFrame(event) {
+                // Your animation or continuous update logic here
             }
         }
+    }
 
-        // Move the active layer to the center of the view, so all 
-        // the created paths in it appear centered.
-        project.activeLayer.position = view.center;
-    });
+    // paper.project.activeLayer.position = paper.view.center;
 
-    // Move the active layer to the center of the view:
-    project.activeLayer.position = view.center;
 
+    // var path = new paper.Path.Circle({
+    //     center: paper.view.center,
+    //     radius: 50,
+    //     fillColor: 'red'
+    // });
+
+    // // Define an interaction event for the path
+    // path.onClick = function (event) {
+    //     path.fillColor = 'blue';
+    // };
+
+    // // Continuously update the view
+    // function onFrame(event) {
+    //     // Your animation or continuous update logic here
+    // }
 }
 
 
