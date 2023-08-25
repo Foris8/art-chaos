@@ -1,69 +1,43 @@
-// import { Raster } from "paper/dist/paper-core";
-// import * as paper from "paper"
-import paper from "paper"
-import { Raster } from "paper/dist/paper-core"
 
 export default function default_canvas(){
-    let canvas = document.getElementById('myCanvas');
-    paper.setup(canvas); // create new project and view
+    const sourceCanvas = document.getElementById('sourceCanvas');
+    const targetCanvas = document.getElementById('targetCanvas');
+    const sourceCtx = sourceCanvas.getContext('2d');
+    const targetCtx = targetCanvas.getContext('2d');
 
-    let raster = new paper.Raster('star');
-    raster.position = paper.view.center;
-    // raster.visible = false;
+    const sourceImage = new Image();
+    sourceImage.src = 'image/van-gogh-starry-night-min.jpg';
 
-    // The size of our grid cells:
-    var gridSize = 12;
+    sourceImage.onload = () => {
+        sourceCanvas.width = sourceImage.width;
+        sourceCanvas.height = sourceImage.height;
+        targetCanvas.width = sourceImage.width;
+        targetCanvas.height = sourceImage.height;
 
-    // Space the cells by 120%:
-    var spacing = 1.2;
+        sourceCtx.drawImage(sourceImage, 0, 0);
 
-    raster.on('load',function(){
-        raster.size = new paper.Size(128,128)
-    })
+        const circleDiameter = 10; // Adjust the diameter of the circles as needed
+        const circleRadius = circleDiameter / 2;
+        const borderWidth = 1; // Adjust the border width as needed
+        const borderColor = 'white'; // Border color
 
-    for (var y = 0; y < raster.height; y++) {
-        for (var x = 0; x < raster.width; x++) {
-            // Get the color of the pixel:
-            var color = raster.getPixel(x, y);
-            // Create a circle shaped path:
-            // var path = new paper.Path.Circle({
-            //     center: p,
-            //     radius: gridSize / 2 / spacing,
-            //     fillColor: 'black'
-            // });
-            var path = new paper.Path.Circle({
-                center: new paper.view.center,
-                radius: gridSize / 2 / spacing,
-                fillColor: color
-            });
+        for (let y = 0; y < sourceCanvas.height; y += circleDiameter) {
+            for (let x = 0; x < sourceCanvas.width; x += circleDiameter) {
+                const pixel = sourceCtx.getImageData(x, y, 1, 1).data;
 
-            // let path = new paper.Path.Circle(new paper.Point(x, y), gridSize / 2 / spacing);
-            // path.fillColor = color;
-            // Scale the path by the amount of gray in the pixel color:
-            function onFrame(event) {
-                // Your animation or continuous update logic here
+                // Draw the circle with white border around each pixel
+                targetCtx.beginPath();
+                targetCtx.arc(x + circleRadius, y + circleRadius, circleRadius, 0, 2 * Math.PI);
+                targetCtx.fillStyle = `rgba(${pixel[0]}, ${pixel[1]}, ${pixel[2]}, ${pixel[3] / 255})`;
+                targetCtx.fill();
+
+                targetCtx.strokeStyle = borderColor;
+                targetCtx.lineWidth = borderWidth;
+                targetCtx.stroke();
             }
         }
-    }
+    };
 
-    // paper.project.activeLayer.position = paper.view.center;
-
-
-    // var path = new paper.Path.Circle({
-    //     center: paper.view.center,
-    //     radius: 50,
-    //     fillColor: 'red'
-    // });
-
-    // // Define an interaction event for the path
-    // path.onClick = function (event) {
-    //     path.fillColor = 'blue';
-    // };
-
-    // // Continuously update the view
-    // function onFrame(event) {
-    //     // Your animation or continuous update logic here
-    // }
 }
 
 
