@@ -6,19 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
     <script src="./dist/main.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+    <script src="src/scripts/test.js" type="module"></script> -->
     <title>Project Name</title>
 </head>
 
 <body>
-    <div id="main">hello</div>    
-    <canvas id="sourceCanvas" resize style="border: 1px dotted red;" width=500 height=500>
-    </canvas>
+    <div id="main">hello</div>  
+    
 
-    <canvas id="targetCanvas" resize style="border: 1px dotted blue;" width=500 height=500 >
-    </canvas>
+    <div id="canvasDiv">
+        
+        <div>
+            
+            <canvas id="sourceCanvas" resize style="border: 1px dotted red;" width=250 height=250>
+            </canvas>
+            <input type="file" id="uploadInput" accept="image/*">
+            <div id="colorContainer"></div>
+        </div>
+        
+        
+        <div>
+            <canvas id="targetCanvas" resize style="border: 1px dotted blue;" width=250 height=250>
+            </canvas>
+        </div>
 
+    </div>  
+   
 
+    <canvas id="mainCanvas"></canvas>
+    
+    
+    
 
 </body>
+
+
 
 </html>

@@ -5,3 +5,19 @@ $color: purple;
     padding: 20px;
 }
 
+.color-box {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    display: inline-block;
+}
+
+#canvasDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 50px;
+
+}
+

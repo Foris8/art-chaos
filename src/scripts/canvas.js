@@ -16,14 +16,15 @@ export default function default_canvas(){
 
         sourceCtx.drawImage(sourceImage, 0, 0);
 
-        const circleDiameter = 10; // Adjust the diameter of the circles as needed
+        const circleDiameter = 5; // Adjust the diameter of the circles as needed
         const circleRadius = circleDiameter / 2;
         const borderWidth = 1; // Adjust the border width as needed
-        const borderColor = 'white'; // Border color
+        // const borderColor = 'white'; // Border color
 
         for (let y = 0; y < sourceCanvas.height; y += circleDiameter) {
             for (let x = 0; x < sourceCanvas.width; x += circleDiameter) {
-                const pixel = sourceCtx.getImageData(x, y, 1, 1).data;
+                const pixel = sourceCtx.getImageData(x, y, 1, 1).data; //get rgba
+                const borderColor = pixel; // Border color
 
                 // Draw the circle with white border around each pixel
                 targetCtx.beginPath();
