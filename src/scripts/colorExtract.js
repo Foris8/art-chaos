@@ -1,8 +1,6 @@
 import ColorThief from "colorthief"
 
-function colorExtract(path){
-    const imagePath = path;
-
+function colorExtract(image){
     // Number of dominant colors to extract
     const numberOfColors = 5;
 
@@ -37,8 +35,6 @@ function colorExtract(path){
 
     // Use the ColorThief library to extract dominant colors
     const colorThief = new ColorThief();
-    const image = document.createElement('img');
-    image.src = imagePath;
 
     image.onload = function () {
         const dominantColors = colorThief.getPalette(image, numberOfColors);

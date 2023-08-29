@@ -9,7 +9,8 @@ class Orb{
         this.pos = [this.x,this.y];
         this.diameter = args.diameter;
         this.radius = args.diameter/2;
-        this.borderWidth = 1;
+        this.borderWidth = 0.5;
+        
     }
 
 

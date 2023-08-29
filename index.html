@@ -17,33 +17,37 @@
     <div class="count-particles"> <span class="js-count-particles"></span> </div>
     <!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
     <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->
-    <script src="src/scripts/snow.js"></script>
     <!-- <script src="http://threejs.org/examples/js/libs/stats.min.js"></script> -->
+    <script src="src/scripts/snow.js"></script>
+    
 
     <div class="userBotton">
-        <input type="file" id="uploadInput" accept="image/*">
-        <button>Extract Color Pallete</button>
-        <button>Pixilize</button>
-        <button>Mapping Color</button>
+        <div>
+            <label for="uploadInput" class="btn">Select Image</label>
+            <input id="uploadInput" accept="image/*" style="visibility:hidden;" type="file">
+        </div>
+        <!-- <input type="file" id="uploadInput" accept="image/*" value="distort"> -->
+        <button id="extractColorButton">Extract Color Pallete</button>
+        <button id="pixilizeImgButton">Pixilize</button>
+        <button id="colorMappingButton">Mapping Color</button>
         
     </div>
     
 
     <div id="canvasDiv">
-        
-        <div class="leftPanel">    
-            <canvas id="sourceCanvas" resize  width=500 height=500>
-            </canvas>
-        </div>
+          
+        <canvas id="sourceCanvas" resize  width=500 height=500>
+        </canvas>
+    
 
 
         <div id="colorContainer"></div>
         
 
-        <div class="rightPanel">
+        <!-- <div class="rightPanel">
             <canvas id="targetCanvas" resize  width=500 height=500>
             </canvas>
-        </div>
+        </div> -->
 
     </div>  
 

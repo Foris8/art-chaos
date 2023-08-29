@@ -1,31 +1,37 @@
 import Orb from "./orb";
 
 class View{
-    constructor(sourceCanvas, targetCanvas, sourceCtx, targetCtx, imageSource){
+    constructor(sourceCanvas, sourceCtx, img){
         this.sourceCanvas = sourceCanvas;
-        this.targetCanvas = targetCanvas;
+        // this.targetCanvas = targetCanvas;
         this.sourceCtx = sourceCtx;
-        this.targetCtx = targetCtx;
-        this.sourceImage = new Image();
+        // this.targetCtx = targetCtx;
+        this.sourceImage = img;
     
-        this.sourceImage.src = imageSource;
+        // this.sourceImage.src = imageSource;
         this.imgSize = 500;
+        this.sourceCanvas.width = this.imgSize; //resize the canvas
+        this.sourceCanvas.height = this.imgSize;
+        this.orbs = {};
 
-    
 
-        this.orbs = [];
+    }
+
+    //Show the image on the current Canvas
+    showImg(){
+        this.sourceImage.onload = ()=>{
+            this.sourceCtx.drawImage(this.sourceImage,0,0,this.imgSize,this.imgSize);
+        }
     }
 
     //In this function, Iterating through the whole image and fetch
     //the pixel information and create the orbs objects into orbs array 
-    pixelize(){
-
+    pixelize(targetCanvas,targetCtx){
+        // debugger
          //onload the sourceImage
          this.sourceImage.onload = ()=> {
-             this.sourceCanvas.width = this.imgSize;
-             this.sourceCanvas.height = this.imgSize;
-             this.targetCanvas.width = this.imgSize;
-             this.targetCanvas.height = this.imgSize;
+             targetCanvas.width = this.imgSize;
+             targetCanvas.height = this.imgSize;
 
              this.sourceCtx.drawImage(this.sourceImage,0,0,this.imgSize,this.imgSize);
 
@@ -38,18 +44,16 @@ class View{
              for(let y = 0; y < this.sourceCanvas.height; y += circleDiameter) {
                 for (let x = 0; x < this.sourceCanvas.width; x += circleDiameter) {
                     args["pixel"] = this.sourceCtx.getImageData(x, y, 1, 1).data;
-                    args["ctx"] = this.targetCtx;
+                    args["ctx"] = targetCtx;
                     args["x"] = x;
                     args["y"] = y;
                     args["diameter"] = circleDiameter;
                     const orb = new Orb(args);
-                    this.orbs.push(orb);
+                    this.orbs[[x,y]] = orb;
                     orb.draw();
-                
                 }
              }
-            
-            // this.annimate();
+             console.log(this.orbs);
          }
 
     }
@@ -72,6 +76,8 @@ class View{
         
         
     }
+
+
 }
 
 export default View;
