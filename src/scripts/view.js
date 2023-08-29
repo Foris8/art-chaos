@@ -9,6 +9,7 @@ class View{
         this.sourceImage = new Image();
     
         this.sourceImage.src = imageSource;
+        this.imgSize = 500;
 
     
 
@@ -21,12 +22,12 @@ class View{
 
          //onload the sourceImage
          this.sourceImage.onload = ()=> {
-             this.sourceCanvas.width = 400;
-             this.sourceCanvas.height = 400;
-             this.targetCanvas.width = 400;
-             this.targetCanvas.height = 400;
+             this.sourceCanvas.width = this.imgSize;
+             this.sourceCanvas.height = this.imgSize;
+             this.targetCanvas.width = this.imgSize;
+             this.targetCanvas.height = this.imgSize;
 
-             this.sourceCtx.drawImage(this.sourceImage,0,0,400,400);
+             this.sourceCtx.drawImage(this.sourceImage,0,0,this.imgSize,this.imgSize);
 
              //get the information
              const circleDiameter = 5;

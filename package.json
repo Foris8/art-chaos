@@ -36,6 +36,7 @@
     "ml-kmeans": "^6.0.0",
     "node-vibrant": "^3.2.1-alpha.1",
     "paper": "^0.12.17",
+    "particles.js": "^2.0.0",
     "regenerator-runtime": "^0.14.0",
     "sass": "^1.66.1",
     "sass-loader": "^13.3.2",

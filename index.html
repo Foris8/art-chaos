@@ -12,26 +12,42 @@
 </head>
 
 <body>
-    <div id="main">hello</div>  
+    <!-- particles.js container -->
+    <div id="particles-js"></div> <!-- stats - count particles -->
+    <div class="count-particles"> <span class="js-count-particles"></span> </div>
+    <!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->
+    <script src="src/scripts/snow.js"></script>
+    <!-- <script src="http://threejs.org/examples/js/libs/stats.min.js"></script> -->
+
+    <div class="userBotton">
+        <input type="file" id="uploadInput" accept="image/*">
+        <button>Extract Color Pallete</button>
+        <button>Pixilize</button>
+        <button>Mapping Color</button>
+        
+    </div>
     
 
     <div id="canvasDiv">
         
-        <div>
-            
-            <canvas id="sourceCanvas" resize style="border: 1px dotted red;" width=250 height=250>
+        <div class="leftPanel">    
+            <canvas id="sourceCanvas" resize  width=500 height=500>
             </canvas>
-            <input type="file" id="uploadInput" accept="image/*">
-            <div id="colorContainer"></div>
         </div>
+
+
+        <div id="colorContainer"></div>
         
-        
-        <div>
-            <canvas id="targetCanvas" resize style="border: 1px dotted blue;" width=250 height=250>
+
+        <div class="rightPanel">
+            <canvas id="targetCanvas" resize  width=500 height=500>
             </canvas>
         </div>
 
     </div>  
+
+    
    
 
     <canvas id="mainCanvas"></canvas>
