@@ -29,7 +29,8 @@ function colorExtract(image){
                 //copy the color pallete
                 navigator.clipboard.writeText(text)
                     .then(() => {
-                        console.log('Text copied to clipboard:', text);
+                        window.alert(`Color ${text} copied to clipboard`)
+                        // console.log('Text copied to clipboard:', text);
                     })
                     .catch((err) => {
                         console.error('Failed to copy text:', err);

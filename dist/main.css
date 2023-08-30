@@ -10,13 +10,6 @@
   padding: 20px;
 }
 
-.color-box {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  flex-direction: column;
-}
-
 #canvasDiv {
   display: flex;
   justify-content: center;
@@ -142,6 +135,30 @@ button:hover {
   -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(0, 0, 0, 0.3333333333));
 }
 
+.color-box {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.color-box:hover {
+  animation: shine 1s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: scale(1.25);
+  }
+  50% {
+    transform: scale(1.55);
+  }
+  100% {
+    transform: scale(1.25);
+  }
+}
 #main {
   color: purple;
 }
