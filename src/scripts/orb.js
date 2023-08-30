@@ -10,6 +10,8 @@ class Orb{
         this.diameter = args.diameter;
         this.radius = args.diameter/2;
         this.borderWidth = 0.5;
+        this.moveOffsetX = 0;
+        this.moveOffsetY = 0;
         
     }
 
@@ -24,6 +26,8 @@ class Orb{
 
     //draw the object according to the current position
     draw(){
+
+
         this.ctx.beginPath();
         this.ctx.arc(this.x + this.radius, this.y + this.radius, this.radius, 0, 2 * Math.PI);
         this.ctx.fillStyle = `rgba(${this.pixel[0]}, ${this.pixel[1]}, ${this.pixel[2]}, ${this.pixel[3] / 255})`;
@@ -34,9 +38,16 @@ class Orb{
         this.ctx.stroke();
     }
 
+    moveOffset(){
+        const min = -1;
+        const max = 1;
+        this.moveOffsetX = min + Math.random() * (max - min);
+        this.moveOffsetY = min + Math.random() * (max - min);
+    }
+
     move(){
-        this.x +=1;
-        this.y +=1;
+        this.x +=this.moveOffsetX;
+        this.y +=this.moveOffsetY;
         this.draw();
         // console.log("Move the object")
     }

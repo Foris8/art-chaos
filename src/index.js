@@ -85,14 +85,6 @@ function handlePixelize(){
     const newCtx = newCanvas.getContext('2d');
     view.pixelize(newCanvas,newCtx);
     
-    newCanvas.addEventListener('mousemove',handlePixelizeMoveOver);
+    // newCanvas.addEventListener('mousemove',handlePixelizeMoveOver)
 }
 
-function handlePixelizeMoveOver(event){
-    const element = document.getElementsByClassName("pixilize-canvas")[0];
-    // debugger
-    const rect = element.getBoundingClientRect();
-    const mouseX = event.clientX - rect.left;
-    const mouseY = event.clientY - rect.top;
-    console.log(`Mouse X: ${mouseX}, Mouse Y: ${mouseY}`);
-}

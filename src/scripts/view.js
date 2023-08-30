@@ -53,26 +53,52 @@ class View{
                     orb.draw();
                 }
              }
-             console.log(this.orbs);
+             this.mouseMove(targetCanvas);
+             this.animate();
          }
 
+         
     }
 
-    annimate(){
-        //check all the orbs element and draw it
-        //fetch the object in array and compare it with other objects O(n^2)
-        console.log("annimate")
-        for (let i = 0; i < this.orbs.length; i++) {
-            for (let j = i + 1; j < this.orbs.length; j++) {
-                // if (this.orbs[i].isColisionWith(this.orbs[j])){
-                //     this.orbs[i].move();
-                //     this.orbs[j].move();
-                // }
-                this.orbs[i].move();
-                this.orbs[j].move();
-            }
+    mouseMove(targetCanvas){
+        this.targetCanvas = targetCanvas;
+        this.targetCtx = targetCanvas.getContext('2d');
+        this.targetCanvas.addEventListener('mousemove',this.handlePixelizeMoveOver.bind(this));
+    }
+
+   handlePixelizeMoveOver(event) {
+        const element = document.getElementsByClassName("pixilize-canvas")[0];
+        // debugger
+        const rect = element.getBoundingClientRect();
+        const mouseX = Math.floor(event.clientX - rect.left);
+        const mouseY = Math.floor(event.clientY - rect.top);
+        const mousePos = [mouseX,mouseY];
+        console.log(mousePos);
+        if (this.orbs[mousePos]){
+            // console.log(`Mouse X: ${mouseX}, Mouse Y: ${mouseY}`);
+            this.orbs[mousePos].moveOffset();
         }
-        // requestAnimationFrame(this.animate.bind(this));
+    }
+
+    //This functino is to draw a new 
+    draw(){
+        //clear the current canvas
+        this.targetCtx.clearRect(0, 0, this.targetCanvas.width, this.targetCanvas.height);
+       
+        const orbs = Object.values(this.orbs);
+        orbs.forEach(orb =>{
+            orb.move();
+        });
+
+        
+    }
+
+
+    animate(){ 
+
+        this.draw();
+        
+        requestAnimationFrame(this.animate.bind(this));
         
         
     }
