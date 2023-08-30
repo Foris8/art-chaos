@@ -7,7 +7,9 @@ import colorExtract from "./scripts/colorExtract";
 
 
 document.addEventListener("DOMContentLoaded",function(){
-    console.log("Hello World");
+    //Control the start button
+    const startButton = document.getElementById('start-button');
+    startButton.addEventListener('click',handleStartButton);
     
     //Control the uploadButton
     const uploadInput = document.getElementById('uploadInput');
@@ -88,3 +90,13 @@ function handlePixelize(){
     // newCanvas.addEventListener('mousemove',handlePixelizeMoveOver)
 }
 
+
+function handleStartButton(){
+    const particleElement = document.querySelectorAll("#particles-js")[0];
+    const introPage = document.querySelectorAll(".intro-modal")[0];
+    const toolContainer = document.querySelectorAll(".container")[0];
+
+    particleElement.style.zIndex = -2;
+    introPage.style.display = "none";
+    toolContainer.style.zIndex = 3;
+}
