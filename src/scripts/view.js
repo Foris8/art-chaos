@@ -69,15 +69,30 @@ class View{
    handlePixelizeMoveOver(event) {
         const element = document.getElementsByClassName("pixilize-canvas")[0];
         // debugger
-        const rect = element.getBoundingClientRect();
-        const mouseX = Math.floor(event.clientX - rect.left);
-        const mouseY = Math.floor(event.clientY - rect.top);
-        const mousePos = [mouseX,mouseY];
-        console.log(mousePos);
-        if (this.orbs[mousePos]){
-            // console.log(`Mouse X: ${mouseX}, Mouse Y: ${mouseY}`);
-            this.orbs[mousePos].moveOffset();
-        }
+        const rect = element.getBoundingClientRect(); 
+
+       const canvasX = event.clientX - rect.left;
+       const canvasY = event.clientY - rect.top;
+       const mousePos = { x: canvasX, y: canvasY };
+
+       // Iterate through orbs and find the closest one
+       let closestOrb = null;
+       let closestDistance = Infinity; 
+
+       for (const orb of Object.values(this.orbs)) {
+           const distance = Math.sqrt((mousePos.x - orb.x) ** 2 + (mousePos.y - orb.y) ** 2);
+
+           //chose the closest orb
+           if (distance < closestDistance) {
+               closestDistance = distance;
+               closestOrb = orb;
+           }
+       }
+
+
+       if (closestOrb) {
+           closestOrb.moveOffset();
+       }
     }
 
     //This functino is to draw a new 

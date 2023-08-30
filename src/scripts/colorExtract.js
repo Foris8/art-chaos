@@ -21,6 +21,20 @@ function colorExtract(image){
                 colorBox = document.createElement('div');
                 colorBox.style.backgroundColor = color;
                 colorBox.classList.add('color-box');
+                colorBox.setAttribute("data-rgb", color);
+                colorBox.addEventListener("click",()=>{
+
+                const text = colorBox.getAttribute("data-rgb");
+                
+                //copy the color pallete
+                navigator.clipboard.writeText(text)
+                    .then(() => {
+                        console.log('Text copied to clipboard:', text);
+                    })
+                    .catch((err) => {
+                        console.error('Failed to copy text:', err);
+                    });
+                })
                 colorContainer.appendChild(colorBox);
             }
         });

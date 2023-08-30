@@ -71,6 +71,24 @@ canvas {
     margin-top: -50px;
 }
 
+.count-particles span{
+    
+}
+
+
+.count-particles button{
+    padding: 25px 30px;
+
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 4px;
+    overflow: hidden;
+    transition: 0.5s;
+    cursor: pointer;
+    display: none;
+}
+
 .js-count-particles {
     font-size: 1.1em;
 }
