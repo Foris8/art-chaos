@@ -95,8 +95,10 @@ function handleStartButton(){
     const particleElement = document.querySelectorAll("#particles-js")[0];
     const introPage = document.querySelectorAll(".intro-modal")[0];
     const toolContainer = document.querySelectorAll(".container")[0];
+    const dropDownButton = document.querySelectorAll(".dropdown")[0];
 
     particleElement.style.zIndex = -2;
     introPage.style.display = "none";
     toolContainer.style.zIndex = 3;
+    dropDownButton.style.zIndex = 3;
 }

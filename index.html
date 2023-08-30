@@ -7,13 +7,11 @@
     <link rel="stylesheet" href="./dist/main.css" />
     <link rel="icon" type="image/x-icon" href="image/icons8-art-96.png">
     <script src="./dist/main.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
-    <script src="src/scripts/test.js" type="module"></script> -->
     <title>Art Chaos</title>
 </head>
 
 <body>
-    <audio loop autoplay>
+    <audio autoplay loop>
         <source src="image/The-Truth-That-You-Leave.mp3" type="audio/mpeg">
     </audio>
   
@@ -31,7 +29,7 @@
                     </span>
                 </button>
             </div>
-        
+
         </div>
     </div>
 
@@ -53,10 +51,48 @@
             <button id="extractColorButton">Extract Color Pallete</button>
             <button id="pixilizeImgButton">Pixilize</button>
             <button id="colorMappingButton">Mapping Color</button>
+        
+
         </div>
     </div>
+
+    <div class="dropdown">
+        <input type="checkbox" id="dropdown">
     
+        <label class="dropdown__face" for="dropdown">
+            <div class="dropdown__text">Questions?</div>
     
+            <div class="dropdown__arrow"></div>
+        </label>
+    
+        <ul class="dropdown__items">
+            <li>
+                <a href="https://www.linkedin.com/in/fanyitang/">
+                    <img src="image/icons8-linkedin.gif">
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/Foris8">
+                    <img src="image/icons8-github-24.png">
+                </a>
+            </li>
+            <li>
+                <button id="instructionButton">
+                    <img src="image/icons8-question-mark.gif" alt="" width="20" height="20">
+                </button>
+            </li>
+        </ul>
+    </div>
+    
+    <svg>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+            <feBlend in="SourceGraphic" in2="goo" />
+        </filter>
+    </svg>
+    
+
 
     <div id="canvasDiv">
           
@@ -79,6 +115,8 @@
    
 
     <canvas id="mainCanvas"></canvas>
+
+    
     
     
     
