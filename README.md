@@ -1,11 +1,11 @@
 # Art-Chaos: A Creative Reimagining Tool
 
-# Live Site
-[Art-Chaos](https://foris8.github.io/art-chaos/)
-
 <p align="center">
   <img src="image/home.png" />
 </p>
+
+## Live Site
+[Art-Chaos](https://foris8.github.io/art-chaos/)
 
 ## Introduction
 Art-Chaos is an innovative digital platform designed for art enthusiasts and creators. It offers a unique opportunity to upload, deconstruct, and reconstruct art masterpieces. This interactive tool empowers users to explore artistic expression by manipulating famous artworks digitally.
