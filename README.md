@@ -16,7 +16,7 @@ Users can upload their favorite artworks onto the platform, setting the stage fo
 ### Extract Color Palette
 A distinct feature where users can extract and view the color palette of the uploaded artwork, providing insight into the color schemes used by the original artists.
 <p align="center">
-  <img src="image/extractColor.png" />
+  <img src="image/colorPallete.png" />
 </p>
 
 ### Interactive Pixel Manipulation
